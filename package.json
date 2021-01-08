@@ -17,7 +17,18 @@
     "url": "https://github.com/jonathansamines/hapi-test-sandbox/issues"
   },
   "homepage": "https://github.com/jonathansamines/hapi-test-sandbox#readme",
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "parserOptions": {
+      "sourceType": "script"
+    }
+  },
   "dependencies": {
-    "@hapi/hapi": "^20.0.3"
+    "@hapi/hapi": "^20.0.3",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1"
   }
 }
