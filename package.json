@@ -21,6 +21,9 @@
     "extends": "airbnb-base",
     "parserOptions": {
       "sourceType": "script"
+    },
+    "rules": {
+      "strict": "off"
     }
   },
   "dependencies": {
