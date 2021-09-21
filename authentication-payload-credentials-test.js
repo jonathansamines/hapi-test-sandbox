@@ -41,6 +41,7 @@ async function run() {
     auth: {
       strategy: 'default',
       credentials,
+      payload: false
     },
   });
 
