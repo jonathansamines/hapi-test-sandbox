@@ -5,7 +5,7 @@ const assert = require('assert');
 
 async function run() {
     const tasks = [];
-    const serverA = Hapi.server();
+    const server = Hapi.server();
 
     function createTask(name) {
         return function task() {
@@ -13,13 +13,13 @@ async function run() {
         }
     }
 
-    serverA.ext('onPreStart', createTask('onPreStart'));
-    serverA.ext('onPostStart', createTask('onPostStart'));
-    serverA.ext('onPreStop', createTask('onPreStop'));
-    serverA.ext('onPostStop', createTask('onPostStop'));
+    server.ext('onPreStart', createTask('onPreStart'));
+    server.ext('onPostStart', createTask('onPostStart'));
+    server.ext('onPreStop', createTask('onPreStop'));
+    server.ext('onPostStop', createTask('onPostStop'));
 
-    await serverA.initialize();
-    await serverA.stop();
+    await server.initialize();
+    await server.stop();
 
     assert.deepStrictEqual(tasks, ['onPreStart', 'onPostStart', 'onPreStop', 'onPostStop']);
 }

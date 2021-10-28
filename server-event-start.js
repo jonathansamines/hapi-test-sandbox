@@ -5,7 +5,7 @@ const assert = require('assert');
 
 async function run() {
     const events = [];
-    const serverA = Hapi.server();
+    const server = Hapi.server();
 
     function createEventHandler(name) {
         return function handler() {
@@ -13,11 +13,11 @@ async function run() {
         }
     }
 
-    serverA.events.once('start', createEventHandler('start'));
-    serverA.events.once('stop', createEventHandler('stop'));
+    server.events.once('start', createEventHandler('start'));
+    server.events.once('stop', createEventHandler('stop'));
 
-    await serverA.initialize();
-    await serverA.stop();
+    await server.initialize();
+    await server.stop();
 
     assert.deepStrictEqual(events, ['start', 'stop']);
 }
